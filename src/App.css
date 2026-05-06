@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f5f3f0;
+  color: #333;
+}
+
+/* Main */
+.container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Card */
+.card {
+  display: flex;
+  gap: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.image-section img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+}
+
+/* Info */
+.info-section {
+  text-align: left;
+  flex: 1;
+}
+.loader{
+  height: 3rem; 
+  width: 3rem; 
+  animation: spin 1s linear infinite; 
+  border-radius: 10px; 
+  border-bottom-width: 2px; 
+  border-top-width: 2px; 
+  border-color: rgb(59,130,246);
+}
+.info-section h2 {
+  margin-bottom: 10px;
+}
+
+.tag {
+  background: #e6e1ff;
+  color: #5b4bdb;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+.info-item {
+  margin-bottom: 12px;
+}
+
+.info-item strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Button */
+.next-btn {
+  margin-top: 30px;
+  width: 300px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  background: #ffc56d;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.next-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+.next-tag{
+  font-size: small;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-section img {
+    max-width: 100%;
+  }
+
+  .info-section {
+    text-align: center;
+  }
+}
