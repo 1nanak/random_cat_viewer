@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState,useEffect  } from "react";
 import "./App.css";
 
 function App() {
   const [cat, setCat] = useState(null);
-  const [loading, setloading] = useState(false);
+  const [loading, setloading] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   const fetchCat = async () => {
     setloading(true);
@@ -27,9 +28,15 @@ function App() {
   useEffect(() => {
     fetchCat();
   }, []);
-
   return (
-    <main className="container">
+    <main className={`container ${isDark ? "dark" : "" }`}>
+      <button
+        aria-label="Toggle dark mode"
+        className="theme-toggle"
+        onClick={() => setIsDark((prev) => !prev)}
+      >
+        {!isDark ? "☀️" : "🌙"}
+      </button>
       <h1>Random Cat</h1>
       <p className="subtitle">
         Discover a random cat and brighten your day! 🐾
@@ -37,11 +44,19 @@ function App() {
 
       <div className="card">
         <div className="image-section">
-          {loading ? (
-            <div className="loader"></div>
-          ) : cat ? (
-            <img src={cat.image} alt="Random Cat" />
-          ) : null}
+          {loading && (
+            <div className="loader-wrapper">
+              <div className="loader"></div>
+            </div>
+          )}
+
+          {cat && (
+            <img
+              src={cat.image}
+              alt="Random Cat"
+              className={loading ? "hidden-img" : ""}
+            />
+          )}
         </div>
 
         {cat && (
